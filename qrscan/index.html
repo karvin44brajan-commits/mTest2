@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mObywatel</title>
+<link rel="stylesheet" href="../assets/home.css">
+<link rel="stylesheet" href="../assets/main.css">
+<link rel="icon" type="image/x-icon" href="https://imgur.com/a/NtZWDW6">
+<link rel="apple-touch-icon" href="../assets/logomobywatel.png">
+<link rel="shortcut icon" href="https://imgur.com/a/NtZWDW6">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div class="bottom_bar">
+  <div class="bottom_bar_grid">
+    <div class="bottom_element_grid" send="home">
+      <div class="bottom_element_image home"></div>
+      <p class="bottom_element_text">Pulpit</p>
+    </div>
+    <div class="bottom_element_grid" send="documents">
+      <div class="bottom_element_image documents"></div>
+      <p class="bottom_element_text">Dokumenty</p>
+    </div>
+    <div class="bottom_element_grid" send="services">
+      <div class="bottom_element_image services"></div>
+      <p class="bottom_element_text">Usługi</p>
+    </div>
+    <div class="bottom_element_grid" send="qr">
+      <div class="bottom_element_image qr_open qr"></div>
+      <p class="bottom_element_text open">Kod QR</p>
+    </div>
+    <div class="bottom_element_grid" send="more">
+      <div class="bottom_element_image more"></div>
+      <p class="bottom_element_text">Więcej</p>
+    </div>
+  </div>
+</div>
+<div class="error_overlay" id="error_overlay">
+  <div class="error_box">
+    <p class="error_title">Włącz dostęp do kamery</p>
+    <p class="error_description">Aby korzystać z tej funkcji, zezwól aplikacji na dostęp do kamery w ustawieniach urządzenia.</p>
+    <p class="error_button" id="error_ack">Rozumiem</p>
+  </div>
+</div>
+<div class="container">
+  <div class="qr_top">
+    <div class="qr_back" onclick="sendTo('qr')">
+      <img class="qr_back_icon" src="../qrshow/bluearrow.png">
+      <p class="qr_back_text">Wróć</p>
+    </div>
+    <p class="qr_top_title">Zeskanuj kod QR</p>
+    <div></div>
+  </div>
+  <p class="qr_desc qr_center qr_desc_big qr_pokaz_color">Zeskanuj kod QR osobie, której potwierdzasz dokument</p>
+  <p class="qr_desc qr_center">Umieść kod QR w ramce, aby go zeskanować</p>
+  <div class="qr_scan_card">
+    <div class="qr_scan_inner">
+      <div class="qr_scan_target">
+        <div class="qr_scan_corner tl"></div>
+        <div class="qr_scan_corner tr"></div>
+        <div class="qr_scan_corner bl"></div>
+        <div class="qr_scan_corner br"></div>
+      </div>
+      <!-- <button class="qr_scan_button" type="button">Wpisz kod</button> -->
+    </div>
+  </div>
+</div>
+<script src="../assets/bar.js"></script>
+<script src="../assets/img-fallback.js"></script>
+<script src="../assets/manifest.js"></script>
+<script>
+  var eo=document.getElementById('error_overlay');
+  setTimeout(function(){ eo.classList.add('open'); },500);
+  var btn=document.querySelector('.qr_scan_button');
+  if(btn){ btn.addEventListener('click', function(){ eo.classList.add('open'); }); }
+  document.getElementById('error_ack').addEventListener('click',function(){
+    eo.classList.add('closing');
+    setTimeout(function(){
+      eo.classList.remove('open');
+      eo.classList.remove('closing');
+    },180);
+  });
+</script>
+</body>
+</html>

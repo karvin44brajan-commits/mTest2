@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mObywatel</title>
+<link rel="stylesheet" href="../assets/home.css">
+<link rel="stylesheet" href="../assets/main.css">
+<link rel="icon" href="assets/images/MS132.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logomobywatel.png">
+<link rel="shortcut icon" href="https://imgur.com/a/NtZWDW6">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div class="bottom_bar">
+  <div class="bottom_bar_grid">
+    <div class="bottom_element_grid" send="home">
+      <div class="bottom_element_image home_open home"></div>
+      <p class="bottom_element_text open">Pulpit</p>
+    </div>
+    <div class="bottom_element_grid" send="documents">
+      <div class="bottom_element_image documents"></div>
+      <p class="bottom_element_text">Dokumenty</p>
+    </div>
+    <div class="bottom_element_grid" send="services">
+      <div class="bottom_element_image services"></div>
+      <p class="bottom_element_text">Usługi</p>
+    </div>
+    <div class="bottom_element_grid" send="qr">
+      <div class="bottom_element_image qr"></div>
+      <p class="bottom_element_text">Kod QR</p>
+    </div>
+    <div class="bottom_element_grid" send="more">
+      <div class="bottom_element_image more"></div>
+      <p class="bottom_element_text">Więcej</p>
+    </div>
+  </div>
+</div>
+<div class="error_overlay" id="error_overlay">
+  <div class="error_box">
+    <p class="error_title">Coś poszło nie tak...</p>
+    <p class="error_description">Sprawdź swoje połączenie z internetem lub spróbuj ponownie później.</p>
+    <p class="error_button" id="error_ack">Rozumiem</p>
+  </div>
+</div>
+<div class="container">
+  <div class="top_grid">
+    <img src="./topimageright.png" class="top_image">
+    <img src="./topimage.png" class="top_image right">
+  </div>
+  <div class="card_grid">
+    <p class="title">Dokumenty</p>
+    <button class="main_button">Dodaj</button>
+    <button class="main_button all_documents" onclick="sendTo('documents')">Wszystkie</button>
+  </div>
+  <div class="card" onclick="sendTo('card')">
+    <img class="background" src="./mdowodbg.png">
+    <img class="human" src="./human.png">
+    <div class="id_bottom">
+      <p class="name">mDowód</p>
+      <img class="arrow" src="./arrow.png">
+    </div>
+  </div>
+  <div class="card_below_grid">
+    <p class="title">Usługi</p>
+    <button class="main_button all_services" onclick="sendTo('services')">Wszystkie</button>
+  </div>
+  <div class="services_grid">
+    <div class="service_box">
+      <img class="service_box_icon" src="./bezpieczniewsieci.png" loading="lazy" decoding="async">
+      <p class="service_box_name">Bezpiecznie w sieci</p>
+    </div>
+    <div class="service_box">
+      <img class="service_box_icon" src="./historiapojazdu.png" loading="lazy" decoding="async">
+      <p class="service_box_name">Historia pojazdu</p>
+    </div>
+    <div class="service_box">
+      <img class="service_box_icon" src="./zastrzezpesel.png" loading="lazy" decoding="async">
+      <p class="service_box_name">Zastrzeż PESEL</p>
+    </div>
+    <div class="service_box">
+      <img class="service_box_icon" src="./firma.png" loading="lazy" decoding="async">
+      <p class="service_box_name">Firma</p>
+    </div>
+    <div class="service_box">
+      <img class="service_box_icon" src="./punktykarne.png" loading="lazy" decoding="async">
+      <p class="service_box_name">Punkty karne</p>
+    </div>
+    <div class="service_box">
+      <img class="service_box_icon" src="./mandaty.png" loading="lazy" decoding="async">
+      <p class="service_box_name">Mandaty</p>
+    </div>
+  </div>
+</div>
+<script src="../assets/bar.js"></script>
+<script src="../assets/img-fallback.js"></script>
+<script src="../assets/manifest.js"></script>
+<script>
+document.querySelectorAll('.service_box').forEach(function(el){
+  el.addEventListener('click', function(){ sendTo('services'); });
+});
+var eo=document.getElementById('error_overlay');
+var addBtn=document.querySelector('.card_grid .main_button:not(.all_documents)');
+if(addBtn){ addBtn.addEventListener('click', function(){ eo.classList.add('open'); }); }
+document.getElementById('error_ack').addEventListener('click',function(){
+  eo.classList.add('closing');
+  setTimeout(function(){
+    eo.classList.remove('open');
+    eo.classList.remove('closing');
+  },180);
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Generator Linków mObywatel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../assets/creator.css">
+  <style>
+    .result-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 8px;
+      word-break: break-all;
+      display: none;
+    }
+    .result-link {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <main class="creator-page">
+    <section class="creator-card">
+      <h1 class="creator-title">GENERATOR LINKU</h1>
+      <form class="creator-form" id="generatorForm" action="#" method="post" onsubmit="return false;">
+        <div class="field">
+          <label class="field-label" for="name">Imię</label>
+          <input class="field-input" id="name" type="text" placeholder="Adam" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="surname">Nazwisko</label>
+          <input class="field-input" id="surname" type="text" placeholder="Nowak" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="nationality">Obywatelstwo</label>
+          <input class="field-input" id="nationality" type="text" placeholder="POLSKIE" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="birthday">Data urodzenia</label>
+          <input class="field-input" id="birthday" type="text" placeholder="20.05.2007" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="familyName">Nazwisko rodowe</label>
+          <input class="field-input" id="familyName" type="text" placeholder="Nowak" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="sex">Płeć (m - Mężczyzna / k - Kobieta)</label>
+          <input class="field-input" id="sex" type="text" placeholder="m" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="fathersFamilyName">Imię / Nazwisko ojca</label>
+          <input class="field-input" id="fathersFamilyName" type="text" placeholder="Jan" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="mothersFamilyName">Imię / Nazwisko matki</label>
+          <input class="field-input" id="mothersFamilyName" type="text" placeholder="Anna Kowalska" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="birthPlace">Miejsce urodzenia</label>
+          <input class="field-input" id="birthPlace" type="text" placeholder="Warszawa" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="countryOfBirth">Kraj urodzenia</label>
+          <input class="field-input" id="countryOfBirth" type="text" placeholder="Polska" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="adress1">Adres (Ulica i nr)</label>
+          <input class="field-input" id="adress1" type="text" placeholder="Rolna 43B" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="adress2">Adres (Kod pocztowy)</label>
+          <input class="field-input" id="adress2" type="text" placeholder="61-259" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="city">Miasto</label>
+          <input class="field-input" id="city" type="text" placeholder="Poznań" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="pesel">PESEL</label>
+          <input class="field-input" id="pesel" type="text" placeholder="07291502957" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="image">Link do zdjęcia (lub np. idphoto10.png)</label>
+          <input class="field-input" id="image" type="text" placeholder="https://..." autocomplete="off">
+        </div>
+        
+        <div class="creator-actions">
+          <button class="submit-btn" id="generateBtn" type="button">GENERUJ LINK</button>
+        </div>
+
+        <div class="result-box" id="resultBox">
+          <p style="color: white; margin-bottom: 5px;">Twój link:</p>
+          <a class="result-link" id="resultLink" href="#" target="_blank"></a>
+          <br><br>
+          <button class="submit-btn" id="copyBtn" type="button" style="padding: 10px; font-size: 14px;">KOPIUJ</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script>
+    function encodeData(obj) {
+      var str = encodeURIComponent(JSON.stringify(obj));
+      var key = "mObywatelSecretKey123";
+      var encoded = "";
+      for(var i=0; i<str.length; i++) {
+        encoded += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      }
+      return btoa(encoded).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', function() {
+      var obj = {};
+      var fields = [
+        'name', 'surname', 'nationality', 'birthday', 'familyName', 'sex', 
+        'fathersFamilyName', 'mothersFamilyName', 'birthPlace', 'countryOfBirth', 
+        'adress1', 'adress2', 'city', 'pesel', 'image'
+      ];
+      
+      var hasAny = false;
+      fields.forEach(function(f) {
+        var val = document.getElementById(f).value.trim();
+        if(val) {
+          obj[f] = val;
+          hasAny = true;
+        }
+      });
+      
+      var currentUrl = new URL(window.location.href);
+      var baseUrl = new URL('../index.html', currentUrl).href;
+      var finalUrl = baseUrl;
+      if (hasAny) {
+          finalUrl += '?data=' + encodeData(obj);
+      }
+      
+      var resultBox = document.getElementById('resultBox');
+      var resultLink = document.getElementById('resultLink');
+      resultLink.href = finalUrl;
+      resultLink.textContent = finalUrl;
+      resultBox.style.display = 'block';
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', function() {
+      var linkText = document.getElementById('resultLink').textContent;
+      navigator.clipboard.writeText(linkText).then(function() {
+        alert('Skopiowano link do schowka!');
+      });
+    });
+  </script>
+</body>
+</html>

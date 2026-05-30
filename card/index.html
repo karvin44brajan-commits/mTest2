@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>mObywatel</title>
+  <link rel="stylesheet" href="../assets/home.css">
+  <link rel="stylesheet" href="../assets/main.css">
+  <link rel="apple-touch-icon" href="../assets/logomobywatel.png">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+</head>
+
+<body class="card_page">
+  <div class="bottom_bar">
+    <div class="bottom_bar_grid">
+      <div class="bottom_element_grid" send="home">
+        <div class="bottom_element_image home"></div>
+        <p class="bottom_element_text">Pulpit</p>
+      </div>
+      <div class="bottom_element_grid" send="documents">
+        <div class="bottom_element_image documents_open"></div>
+        <p class="bottom_element_text open">Dokumenty</p>
+      </div>
+      <div class="bottom_element_grid" send="services">
+        <div class="bottom_element_image services"></div>
+        <p class="bottom_element_text">Usługi</p>
+      </div>
+      <div class="bottom_element_grid" send="qr">
+        <div class="bottom_element_image qr"></div>
+        <p class="bottom_element_text">Kod QR</p>
+      </div>
+      <div class="bottom_element_grid" send="more">
+        <div class="bottom_element_image more"></div>
+        <p class="bottom_element_text">Więcej</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="qr_top">
+      <div class="qr_back" onclick="sendTo('home')">
+        <img class="qr_back_icon" src="../qrshow/bluearrow.png">
+        <p class="qr_back_text">Wróć</p>
+      </div>
+      <p class="qr_top_title">mDowód</p>
+      <img class="help_img" src="7MlyqbI.png" alt="Pomoc">
+    </div>
+    <div class="confirm">
+      <div class="opacity" onclick="closePage()"></div>
+      <div class="page_1 page">
+        <p class="confirm_title">Wybierz dokument</p>
+        <div class="confirm_list">
+          <div class="cardd card_1">
+            <div class="card_inner">
+              <p class="confirm_name">Dowód osobisty</p>
+              <p class="confirm_description">Zobaczysz tutaj dane swojego dowodu osobistego. Ale jeśli chcesz
+                potwierdzić tożsamość, potrzebujesz fizycznego dokumentu.</p>
+              <p class="confirm_button" onclick="openPage(2)">Pokaż dane</p>
+            </div>
+          </div>
+          <div class="cardd card_2">
+            <div class="card_inner">
+              <p class="confirm_name">mDowód</p>
+              <p class="confirm_description">Nie używaj danych mDowodu w banku (do 31 sierpnia), gdy wyjeżdżasz za
+                granicę lub składasz wniosek o dowód osobisty.</p>
+              <p class="confirm_button" onclick="openPage(3)">Pokaż dane</p>
+            </div>
+          </div>
+        </div>
+        <p class="confirm_close close_page_1" onclick="closePage()">Zamknij</p>
+      </div>
+      <div class="page page_2 page_other">
+        <p class="confirm_title">Dane dowodu osobistego</p>
+        <div class="confirm_info">
+          <div class="confirm_box">
+            <p class="box_top">Seria i numer</p>
+            <p class="box_value box_highlight">ZZC 108201</p>
+            <button class="main_button">Kopiuj</button>
+          </div>
+          <div class="confirm_box">
+            <p class="box_top">Organ wydający</p>
+            <p class="box_value">URZĄD MIEJSKI W WARSZAWIE</p>
+          </div>
+          <div class="confirm_box">
+            <p class="box_top">Termin ważności</p>
+            <p class="box_value">11.09.2032</p>
+          </div>
+          <div class="confirm_box" style="border: none;">
+            <p class="box_top">Termin wydania</p>
+            <p class="box_value">11.09.2022</p>
+          </div>
+        </div>
+        <p class="confirm_close close_page_2" onclick="closePage()">Zamknij</p>
+        <p class="confirm_back back" onclick="openPage(1)">Wróć</p>
+      </div>
+      <div class="page page_3 page_other">
+        <p class="confirm_title">Dane mDowodu</p>
+        <div class="confirm_info">
+          <div class="confirm_box">
+            <p class="box_top">Seria i numer</p>
+            <p class="box_value box_highlight">ZZC 108201</p>
+            <button class="main_button">Kopiuj</button>
+          </div>
+          <div class="confirm_box">
+            <p class="box_top">Organ wydający</p>
+            <p class="box_value">URZĄD MIEJSKI W WARSZAWIE</p>
+          </div>
+          <div class="confirm_box">
+            <p class="box_top">Termin ważności</p>
+            <p class="box_value">11.09.2032</p>
+          </div>
+          <div class="confirm_box">
+            <p class="box_top">Imię ojca</p>
+            <p class="box_value">ANDRZEJ</p>
+          </div>
+          <div class="confirm_box" style="border: none;">
+            <p class="box_top">Imię matki</p>
+            <p class="box_value">KATARZYNA</p>
+          </div>
+        </div>
+        <p class="confirm_close close_page_2" onclick="closePage()">Zamknij</p>
+        <p class="confirm_back back" onclick="openPage(1)">Wróć</p>
+      </div>
+    </div>
+    <p class="time_text" id="time">Czas: 00:06:52 12.02.2026</p>
+    <div class="id_image_data">
+      <img draggable="false" class="id_image" src="8ieHfVK.png">
+      <div class="inset">
+
+      </div>
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" class="id_own_image"></img>
+      <img src="sW5KVOE.gif" class="flag_video">
+      <img src="9ipf8YT.gif" class="eagle_video">
+      <div class="id_data_grid">
+        <div class="data_holder">
+          <p class="data_title firstname" id="name">OLIWIER</p>
+          <p class="data_value">Imię (imiona)</p>
+        </div>
+        <div class="data_holder">
+          <p class="data_title surname" id="surname">SZULC</p>
+          <p class="data_value">Nazwisko</p>
+        </div>
+        <div class="data_holder">
+          <p class="data_title" id="nationality">POLSKIE</p>
+          <p class="data_value">Obywatelstwo</p>
+        </div>
+        <div class="data_holder">
+          <p class="data_title" id="birthday">15.09.2007</p>
+          <p class="data_value">Data urodzenia</p>
+        </div>
+        <div class="data_holder">
+          <p class="data_title" id="pesel">07291502957</p>
+          <p class="data_value">Numer PESEL</p>
+        </div>
+      </div>
+    </div>
+    <div class="id_bottom">
+      <div class="bottom_grid">
+        <img class="bottom_image" src="PYshgk0.png">
+        <p class="bottom_text" style="color: #317C26; font-size: 17px;">Dokument ważny</p>
+      </div>
+    </div>
+    <div class="other_grid">
+      <div class="bottom_holder" onclick="qrShow()">
+        <div class="bottom_grid">
+          <img class="bottom_image" style="width: 35px;" src="UftfQGE.png">
+          <p class="bottom_text" style="color: #1f2125;">Potwierdź swoje dane</p>
+        </div>
+        <img class="action_arrow" src="j8mGAOy.png">
+      </div>
+      <div class="bottom_holder" onclick="openPage(1)">
+        <div class="bottom_grid">
+          <img class="bottom_image" style="width: 35px;" src="kofzXIX.png">
+          <p class="bottom_text" style="color: #1f2125;">Dane dokumentu</p>
+        </div>
+        <img class="action_arrow" src="j8mGAOy.png">
+      </div>
+      <div class="bottom_holder info_holder">
+        <div class="bottom_grid">
+          <p class="bottom_text" style="color: #1f2125; margin-left: 0px;">Twoje dodatkowe dane</p>
+        </div>
+        <img class="action_arrow" src="j8mGAOy.png">
+        <div class="additional_holder">
+          <div class="additional_grid">
+            <p class="additional_title">Nazwisko rodowe</p>
+            <p class="additional_subtitle" id="familyName">Szulc</p>
+          </div>
+          <div class="additional_grid">
+            <p class="additional_title">Płeć</p>
+            <p class="additional_subtitle" id="sex">Mężczyzna</p>
+          </div>
+          <div class="additional_grid">
+            <p class="additional_title">Nazwisko rodowe ojca</p>
+            <p class="additional_subtitle" id="fathersFamilyName">Szulc</p>
+          </div>
+          <div class="additional_grid">
+            <p class="additional_title">Nazwisko rodowe matki</p>
+            <p class="additional_subtitle" id="mothersFamilyName">Kaczmarek</p>
+          </div>
+          <div class="additional_grid">
+            <p class="additional_title">Miejsce urodzenia</p>
+            <p class="additional_subtitle" id="birthPlace">Wrocław</p>
+          </div>
+          <div class="additional_grid">
+            <p class="additional_title">Kraj urodzenia</p>
+            <p class="additional_subtitle" id="countryOfBirth">Polska</p>
+          </div>
+          <div class="additional_grid">
+            <p class="additional_title">Adres zameldowania na pobyt stały</p>
+            <p class="additional_subtitle" id="adress">ul. Rolna 43B<br>61-259 Poznań</p>
+          </div>
+          <div class="additional_grid" style="border-bottom: none;">
+            <p class="additional_title">Data zameldowania na pobyt stały</p>
+            <p class="additional_subtitle home_date">4.03.2015</p>
+          </div>
+        </div>
+      </div>
+      <div class="bottom_holder" style="height: 90px; margin-bottom: 5px;">
+        <div class="bottom_update">
+          <div class="bottom_update_grid">
+            <p class="bottom_update_text" style="margin-left: 0px;">Ostatnia aktualizacja</p>
+            <p class="bottom_update_value" style="margin-left: 0px;">05.02.2026</p>
+          </div>
+          <button class="main_button update">Aktualizuj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/bar.js"></script>
+  <script src="../assets/img-fallback.js"></script>
+  <script src="../assets/manifest.js"></script>
+  <script>
+    var PROFILES = {
+      oliwier: {
+        name: 'OKTAWIAN',
+        surname: 'CWEL',
+        nationality: 'ROSYJSKIE',
+        birthday: '15.09.2012',
+        familyName: 'CWEL',
+        sex: 'm',
+        fathersFamilyName: 'CWEL',
+        mothersFamilyName: 'KURWA',
+        birthPlace: 'Moskwa',
+        countryOfBirth: 'Rosja',
+        adress1: 'Moskiewska 103',
+        adress2: '21-120',
+        city: 'Moskwa',
+        pesel: '12152123231',
+        image: 'idphoto.png'
+      },
+    };
+    function _mwCleanPerson(v) { return String(v || '').toLowerCase().trim().replace(/[^a-z0-9_-]/g, ''); }
+    function _mwGetPerson() {
+      var sp = new URLSearchParams(location.search);
+      var q = _mwCleanPerson(sp.get('person'));
+      if (q) { return q; }
+      try { return _mwCleanPerson(localStorage.getItem('mw_person')); } catch (e) { return ''; }
+    }
+    var person = _mwGetPerson();
+    var defaults = (person && PROFILES[person]) ? PROFILES[person] : {};
+    var p = new URLSearchParams(location.search);
+    function val(k, d) {
+      var v = p.get(k);
+      if (v && v.trim()) {
+        try { localStorage.setItem('mw_custom_' + k, v); } catch (e) { }
+        return v;
+      }
+      try {
+        var lv = localStorage.getItem('mw_custom_' + k);
+        if (lv && lv.trim()) { return lv; }
+      } catch (e) { }
+      var dv = defaults[k];
+      if (dv !== undefined && dv !== null && String(dv).trim()) { return String(dv); }
+      return d;
+    }
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function formatNow() {
+      var d = new Date();
+      var t = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+      var date = pad(d.getDate()) + '.' + pad(d.getMonth() + 1) + '.' + d.getFullYear();
+      return 'Czas: ' + t + ' ' + date;
+    }
+    (function tick() {
+      var el = document.getElementById('time');
+      if (el) { el.textContent = formatNow(); }
+      setTimeout(tick, 1000);
+    })();
+    var name = val('name', 'OKTAWIAN');
+    var surname = val('surname', 'CWEL');
+    var nationality = val('nationality', 'ROSYJSKIE');
+    var birthday = val('birthday', '15.09.2012');
+    var familyName = val('familyName', 'CWEL');
+    var sexRaw = val('sex', 'm');
+    var sex = (/^(f|k)/i.test(sexRaw) ? 'Kobieta' : 'Mężczyzna');
+    var father = val('fathersFamilyName', 'CWEL');
+    var mother = val('mothersFamilyName', 'KURWA');
+    var birthPlace = val('birthPlace', 'Moskwa');
+    var countryOfBirth = val('countryOfBirth', 'ROSJA');
+    var addressParts = [val('adress1', 'Moskiewska 103'), val('adress2', '21-120'), val('city', 'Moskwa')].filter(Boolean);
+    var address = addressParts.length ? addressParts[0] + '<br>' + addressParts.slice(1).join(' ') : '—';
+    var pesel = val('pesel', '12152123231');
+    var image = val('image', 'idphoto.png');
+    var setText = function (id, txt) { var el = document.getElementById(id); if (el) { el.textContent = txt; } };
+    setText('name', name.toUpperCase());
+    setText('surname', surname.toUpperCase());
+    setText('nationality', nationality.toUpperCase());
+    setText('birthday', birthday);
+    setText('pesel', pesel);
+    setText('familyName', familyName);
+    setText('sex', sex);
+    setText('fathersFamilyName', father);
+    setText('mothersFamilyName', mother);
+    setText('birthPlace', birthPlace);
+    setText('countryOfBirth', countryOfBirth);
+    var addrEl = document.getElementById('adress');
+    if (addrEl) { addrEl.innerHTML = address; }
+    var photo = document.querySelector('.id_own_image');
+    if (photo) {
+      photo.classList.remove('loaded');
+      var finalSrc = image;
+      var pre = new Image();
+      pre.onload = function () {
+        photo.src = finalSrc;
+        requestAnimationFrame(function () { photo.classList.add('loaded'); });
+      };
+      pre.onerror = function () {
+        photo.src = 'idphoto.png';
+        requestAnimationFrame(function () { photo.classList.add('loaded'); });
+      };
+      pre.src = finalSrc;
+    }
+    function qrShow() { sendTo('qr'); }
+    document.querySelectorAll('.info_holder').forEach(function (el) {
+      el.addEventListener('click', function () { el.classList.toggle('unfolded'); });
+    });
+    function closePage() {
+      document.querySelector('.confirm').classList.remove('page_open', 'page_1_open', 'page_2_open', 'page_3_open');
+    }
+    function openPage(n) {
+      var c = document.querySelector('.confirm');
+      c.classList.add('page_open');
+      c.classList.remove('page_1_open', 'page_2_open', 'page_3_open');
+      if (n === 1) { c.classList.add('page_1_open'); }
+      if (n === 2) { c.classList.add('page_2_open'); }
+      if (n === 3) { c.classList.add('page_3_open'); }
+    }
+  </script>
+</body>
+
+</html>

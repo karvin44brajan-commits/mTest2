@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mObywatel</title>
+<link rel="stylesheet" href="../assets/home.css">
+<link rel="stylesheet" href="../assets/main.css">
+<link rel="icon" type="image/x-icon" href="https://imgur.com/a/NtZWDW6">
+<link rel="apple-touch-icon" href="../assets/logomobywatel.png">
+<link rel="shortcut icon" href="https://imgur.com/a/NtZWDW6">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div class="bottom_bar">
+  <div class="bottom_bar_grid">
+    <div class="bottom_element_grid" send="home">
+      <div class="bottom_element_image home"></div>
+      <p class="bottom_element_text">Pulpit</p>
+    </div>
+    <div class="bottom_element_grid" send="documents">
+      <div class="bottom_element_image documents"></div>
+      <p class="bottom_element_text">Dokumenty</p>
+    </div>
+    <div class="bottom_element_grid" send="services">
+      <div class="bottom_element_image services"></div>
+      <p class="bottom_element_text">Usługi</p>
+    </div>
+    <div class="bottom_element_grid" send="qr">
+      <div class="bottom_element_image qr_open qr"></div>
+      <p class="bottom_element_text open">Kod QR</p>
+    </div>
+    <div class="bottom_element_grid" send="more">
+      <div class="bottom_element_image more"></div>
+      <p class="bottom_element_text">Więcej</p>
+    </div>
+  </div>
+</div>
+<div class="container qrshow_scroll">
+  <div class="qr_top">
+    <div class="qr_back" onclick="sendTo('qr')">
+      <img class="qr_back_icon" src="bluearrow.png">
+      <p class="qr_back_text">Kod QR</p>
+    </div>
+    <p class="qr_top_title">Kod QR</p>
+    <div></div>
+  </div>
+  <p class="qr_desc qr_center qr_desc_big qr_pokaz_color">Pokaż kod QR osobie, której sprawdzasz dokument</p>
+  <p class="qr_desc qr_center">Gdy ta osoba zeskanuje lub przepisze kod, zobaczysz jej dane na swoim telefonie.</p>
+  <div class="qr_card qr_show_card">
+    <div class="qr_show_qr_wrap">
+      <img class="qr_show_qr" src="toscancode.png">
+    </div>
+    <p id="qrDigits" class="qr_show_code">000000</p>
+    <div class="qr_timer_bar">
+      <div id="qrTimerFill" class="qr_timer_fill"></div>
+    </div>
+    <p id="qrTimerText" class="qr_timer_text">Kod wygaśnie za: 2 min 59 sek.</p>
+    <div class="qr_gifs_row">
+      <img class="qr_gif" src="./flag.gif" alt="flag">
+      <img class="qr_gif" src="./badge.gif" alt="badge">
+    </div>
+  </div>
+</div>
+<script src="../assets/bar.js"></script>
+<script src="../assets/img-fallback.js"></script>
+<script src="../assets/manifest.js"></script>
+<script src="./show.js"></script>
+</body>
+</html>

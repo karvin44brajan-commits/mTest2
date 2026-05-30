@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mObywatel</title>
+<script>
+(function(){
+  var host=String(location.hostname||'');
+  var parts=String(location.pathname||'').split('/').filter(Boolean);
+  var base='/';
+  if(host.endsWith('github.io') && parts.length>=1){ base='/' + parts[0] + '/'; }
+  document.write('<base href="'+base+'">');
+})();
+</script>
+<link rel="stylesheet" href="assets/id.css?v=1.5">
+<link rel="stylesheet" href="assets/main.css">
+<link rel="icon" type="image/x-icon" href="https://imgur.com/a/NtZWDW6">
+<link rel="apple-touch-icon" href="assets/logomobywatel.png">
+<link rel="shortcut icon" href="https://imgur.com/a/NtZWDW6">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div class="background"></div>
+<div class="top_grid">
+<img class="logo" src="https://ravenx666.github.io/images/Orzelek.png">
+<p class="logo_text">mObywatel</p>
+</div>
+<div class="top_text">
+<p class="welcome">Dobry wieczór!</p>
+<p class="login_text">Zaloguj się do aplikacji.</p>
+</div>
+<div class="password_box">
+    <div class="password_grid">
+        <p class="password_text">Hasło</p>
+            <div class="input_holder">
+                <input class="password_input" type="password">
+            </div>
+            <p class="forgot_password">Nie pamiętasz hasła?</p>
+        </div>
+    </div>
+</div>
+<div class="bottom">
+<p class="login">Zaloguj się</p>
+<div class="data">
+<img class="logo_other" style="height: 20px;" src="https://ravenx666.github.io/images/COI.png">
+<img class="logo_other" src="https://ravenx666.github.io/images/mc.svg">
+<p class="version">wersja 4.71.1 (13)</p>
+</div>
+</div>
+<script src="assets/id.js?v=1.1"></script>
+<script src="assets/bg-loader.js"></script>
+<script src="assets/img-fallback.js"></script>
+<script src="assets/manifest.js"></script>
+</body>
+</html>

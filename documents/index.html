@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mObywatel</title>
+<link rel="stylesheet" href="../assets/home.css">
+<link rel="stylesheet" href="../assets/main.css">
+<link rel="icon" type="image/x-icon" href="https://imgur.com/a/NtZWDW6">
+<link rel="apple-touch-icon" href="../assets/logomobywatel.png">
+<link rel="shortcut icon" href="https://imgur.com/a/NtZWDW6">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div class="bottom_bar">
+  <div class="bottom_bar_grid">
+    <div class="bottom_element_grid" send="home">
+      <div class="bottom_element_image home"></div>
+      <p class="bottom_element_text">Pulpit</p>
+    </div>
+    <div class="bottom_element_grid" send="documents">
+      <div class="bottom_element_image documents_open documents"></div>
+      <p class="bottom_element_text open">Dokumenty</p>
+    </div>
+    <div class="bottom_element_grid" send="services">
+      <div class="bottom_element_image services"></div>
+      <p class="bottom_element_text">Usługi</p>
+    </div>
+    <div class="bottom_element_grid" send="qr">
+      <div class="bottom_element_image qr"></div>
+      <p class="bottom_element_text">Kod QR</p>
+    </div>
+    <div class="bottom_element_grid" send="more">
+      <div class="bottom_element_image more"></div>
+      <p class="bottom_element_text">Więcej</p>
+    </div>
+  </div>
+</div>
+<div class="error_overlay" id="error_overlay">
+  <div class="error_box">
+    <p class="error_title">Coś poszło nie tak...</p>
+    <p class="error_description">Sprawdź swoje połączenie z internetem lub spróbuj ponownie później.</p>
+    <p class="error_button" id="error_ack">Rozumiem</p>
+  </div>
+</div>
+<div class="container">
+  <div class="card_grid">
+    <p class="page_title">Dokumenty</p>
+    <p class="action_add action">Dodaj</p>
+    <p class="action_edit action">Edytuj</p>
+  </div>
+  <div class="search_grid" style="width: 97%; margin-top: 10px;">
+    <img class="search_icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='11' cy='11' r='7' stroke='%23666' stroke-width='2' fill='none'/><path d='M20 20l-4-4' stroke='%23666' stroke-width='2'/></svg>">
+    <input class="search" placeholder="Szukaj">
+  </div>
+  <p style="font-weight: 600; margin-top: 20px;">Na pulpicie</p>
+  <div class="services_list" style="width: 100%; margin-top: 10px;">
+    <div class="servicedowod" onclick="sendTo('card')">
+      <img class="service_icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='6' y='8' width='20' height='16' rx='3' fill='%23E53935'/><rect x='9' y='12' width='10' height='2' fill='%23ffffff'/><rect x='9' y='16' width='14' height='2' fill='%23ffffff'/></svg>">
+      <p class="service_name" style="font-weight: 600;">mDowód</p>
+      <img class="arrow" src="../home/arrow.png" loading="lazy" decoding="async">
+    </div>
+  </div>
+  <p style="font-weight: 600; margin-top: 25px;">Pozostałe</p>
+  <div style="background-color: white; border-radius: 10px; width: 100%; box-sizing: border-box; padding: 20px; box-shadow: var(--shadow); margin-top: 10px; margin-left: 0px; margin-right: 5px;">
+    <p style="margin-top: 5px; text-align: center; font-size: 13px;">
+      <span style="color: black; font-weight: 600; opacity: 0.9;">Chcesz przenieść tu dokument z pulpitu?</span><br>
+      <span style="opacity: 0.6;">Użyj przycisku edytuj w prawym górnym rogu.</span>
+    </p>
+  </div>
+</div>
+<script src="../assets/bar.js"></script>
+<script src="../assets/img-fallback.js"></script>
+<script src="../assets/manifest.js"></script>
+<script>
+  var eo=document.getElementById('error_overlay');
+  document.querySelectorAll('.action').forEach(function(el){el.addEventListener('click',function(){eo.classList.add('open');});});
+  document.getElementById('error_ack').addEventListener('click',function(){
+    eo.classList.add('closing');
+    setTimeout(function(){
+      eo.classList.remove('open');
+      eo.classList.remove('closing');
+    },180);
+  });
+</script>
+</body>
+</html>
